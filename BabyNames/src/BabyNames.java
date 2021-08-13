@@ -3,6 +3,13 @@ import org.apache.commons.csv.*;
 
 import java.io.*;
 
+
+
+/*
+* Every Method has a testMethod below it which used to operate the method from the main method
+*
+* */
+
 public class BabyNames {
     public static void main(String[] args) {
 //        testGetRank("Owen","M");
@@ -18,7 +25,9 @@ public class BabyNames {
      * This Methods gets
      *  the number to total births,  the number of the boys births, the number of girls births
      *  the number of the total names, the number of the boys names, the number of the girls names
+     *
      * */
+
     public static int totalBirth(FileResource fr) {
         int totalBirths = 0;
         int totalBoys = 0;
@@ -66,6 +75,11 @@ public class BabyNames {
         ;
         totalBirth(fr);
     }
+
+    /*
+    This method gets the number of girls names in a sheet
+    *
+    * */
 
     public static int getNumOfGirls(FileResource fr) {
         String currName = null;
@@ -177,6 +191,11 @@ public class BabyNames {
         System.out.println("The name in that rank is " + name);
     }
 
+    /*
+    * The following method tells you will your name will be if you were born in another year
+    * based on the rank of your name in your year
+    * */
+
     public static String whatIsNameInYear(String yearReal, String expectedYear, String name, String gender) {
         int rankReal = getRank(name, gender);
         String expectedName = getName(rankReal, gender);
@@ -188,6 +207,10 @@ public class BabyNames {
         String newName = whatIsNameInYear("1974", "2014 ", name, gender);
         System.out.println(newName);
     }
+
+    /*
+    * This methods tells you what is the year in which a certain name had the highest rank
+    * */
 
     public static String yearOfHighestRank(String name, String gender) {
 
@@ -220,6 +243,10 @@ public class BabyNames {
         System.out.println("Highest Rank was " + yearOfHighestRank(name, gender));
     }
 
+    /*
+    * This method calculates the average rang of a name in many years
+    * */
+
     public static double getAverageRank(String name, String gender) {
         DirectoryResource dr = new DirectoryResource();
         double avgRank = 0;
@@ -240,6 +267,11 @@ public class BabyNames {
     public static void testGetAverageRank(String name, String gender) {
         System.out.println("Average Rank is " + getAverageRank(name, gender));
     }
+
+
+    /*
+    * this method returns the number of people was born in higher ranks before a certain name in its gender
+    * */
 
     public static int getTotalBirthsRankedHigher(String name, String gender) {
         int totalBirthsBefore = 0;
